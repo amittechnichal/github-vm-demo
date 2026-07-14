@@ -1,21 +1,18 @@
-resource "google_compute_instance" "instance1"
-{ 
-name = "myvminstance"
-machine_type = n1-standard-1"
-zone = "asia-south2-a"
+resource "google_compute_instance" "instance1" {
+  name         = "myvminstance"
+  machine_type = "n1-standard-1"
+  zone         = "asia-south2-a"
 
-boot_disk 
-{
-initialize_params {
-image = "debian-cloud/debian-12"
-}
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-12"
+    }
+  }
 
-}
+  network_interface {
+    network = "default"
 
-network_interface {
-network = "defaul"
-
-access_config {
-}
-}
+    access_config {
+    }
+  }
 }
